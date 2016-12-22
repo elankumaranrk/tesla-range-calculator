@@ -31,6 +31,7 @@ export class TeslaBatteryComponent implements OnInit {
 
         this.models = this.batterService.getModelData();
         this.stats = this.calculateStats(this.results, this.tesla.controls['config'].value);
+        this.tesla.controls['config'].valueChanges.subscribe(data => {this.stats = this.calculateStats(this.results, data)});
       
      }
 
